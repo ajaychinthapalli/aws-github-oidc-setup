@@ -1,0 +1,31 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SecretsManagerReadOnly",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue"
+            ],
+            "Resource": "arn:aws:secretsmanager:us-east-2:573631993187:secret:aws-github-oidc-setup/*"
+        },
+        {
+            "Sid": "SSMParameterReadOnly",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetParameter",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath"
+            ],
+            "Resource": "arn:aws:ssm:us-east-2:573631993187:parameter/github-oidc-setup/*"
+        },
+        {
+            "Sid": "KMSDecryptForSSM",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": "arn:aws:kms:us-east-2:573631993187:key/1d29ce68-fb4c-4d39-a33e-79beec8c1354"
+        }
+    ]
+}
