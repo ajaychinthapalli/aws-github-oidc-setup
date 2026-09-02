@@ -1,0 +1,18 @@
+name: List S3 Buckets
+on: push
+jobs:
+  list_s3:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_OIDC_TEST }}
+          aws-region: us-east-2
+      - name: List S3 buckets
+        run: aws s3 ls
