@@ -13,6 +13,6 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: ${{ secrets.AWS_OIDC_TEST }}
-          aws-region: us-east-2
+          aws-region: us-east-1
       - name: List S3 buckets
         run: aws s3 ls
