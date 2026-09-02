@@ -1,5 +1,7 @@
 name: List S3 Buckets
+
 on: push
+
 jobs:
   list_s3:
     runs-on: ubuntu-latest
